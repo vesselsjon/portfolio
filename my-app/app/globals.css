@@ -86,6 +86,7 @@
   --icon-container-margin: 0 clamp(5rem,calc(4vw - 3rem),10rem);
   --icon-button-width: clamp(45px,calc(4vw + 10px),78px);
   --body-size: clamp(.3rem,calc(3vw + .1rem),1rem);
+  --name-size: clamp(2rem,calc(2.1vw + 1rem),3rem);
 }
 
 .dark {

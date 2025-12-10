@@ -1,8 +1,41 @@
+"use client";
+
 import { LightWave, DarkWave } from "./ui/background/wave";
 import ThemeToggle from "./ui/nav/theme-toggle";
-import { AboutMe, Links, Work, ContactMe } from "./ui/body/buttons";
+import {
+  AboutMeButton,
+  LinksButton,
+  WorkButton,
+  ContactMeButton,
+} from "./ui/body/buttons";
+import { useState } from "react";
+import AboutMe from "./ui/body/about-me";
+import Links from "./ui/body/links";
+import Work from "./ui/body/work";
+import ContactMe from "./ui/body/contact-me";
 
 export default function Home() {
+  const [showAboutMe, setShowAboutMe] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
+  const [showWork, setShowWork] = useState(false);
+  const [showContactMe, setShowContactMe] = useState(false);
+
+  const toggleAboutMeVisibility = () => {
+    setShowAboutMe(!showAboutMe);
+  };
+
+  const toggleLinksVisibility = () => {
+    setShowLinks(!showLinks);
+  };
+
+  const toggleWorkVisibility = () => {
+    setShowWork(!showWork);
+  };
+
+  const toggleContactMeVisibility = () => {
+    setShowContactMe(!showContactMe);
+  };
+
   return (
     <>
       {/* nav */}
@@ -30,21 +63,39 @@ export default function Home() {
                 </h2>
                 <div className="flex flex-wrap flex-row justify-center m-(--icon-container-margin) min-w-xs">
                   <div className="m-4">
-                    <AboutMe></AboutMe>
+                    <AboutMeButton
+                      onClick={toggleAboutMeVisibility}
+                    ></AboutMeButton>
                   </div>
                   <div className="m-4">
-                    <Links></Links>
+                    <LinksButton onClick={toggleLinksVisibility}></LinksButton>
                   </div>
                   <div className="m-4">
-                    <Work></Work>
+                    <WorkButton onClick={toggleWorkVisibility}></WorkButton>
                   </div>
                   <div className="m-4">
-                    <ContactMe></ContactMe>
+                    <ContactMeButton
+                      onClick={toggleContactMeVisibility}
+                    ></ContactMeButton>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="fixed flex items-center justify-center pointer-events-none top-0 left-0 w-screen h-screen z-1">
+          {showAboutMe && (
+            <AboutMe onClose={() => setShowAboutMe(false)}></AboutMe>
+          )}
+          {showLinks && (
+            <Links onClose={() => setShowLinks(false)}></Links>
+          )}
+          {showWork && (
+            <Work onClose={() => setShowWork(false)}></Work>
+          )}
+          {showContactMe && (
+            <ContactMe onClose={() => setShowContactMe(false)}></ContactMe>
+          )}
         </div>
       </div>
 
