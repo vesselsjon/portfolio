@@ -9,7 +9,7 @@ import {
   ContactMeButton,
 } from "./ui/body/buttons";
 import { useState } from "react";
-import AboutMe from "./ui/body/about-me";
+import { AboutMeMdBlock, AboutMeMdHidden } from "./ui/body/about-me";
 import Links from "./ui/body/links";
 import Work from "./ui/body/work";
 import ContactMe from "./ui/body/contact-me";
@@ -24,16 +24,42 @@ export default function Home() {
     setShowAboutMe(!showAboutMe);
   };
 
+  const toggleAboutMeModal = () => {
+    const dialog = document.getElementById("modal_about") as HTMLDialogElement;
+    if (dialog) dialog.show();
+    setShowAboutMe(true);
+  };
+
   const toggleLinksVisibility = () => {
     setShowLinks(!showLinks);
+  };
+
+  const toggleLinksModal = () => {
+    const dialog = document.getElementById("modal_links") as HTMLDialogElement;
+    if (dialog) dialog.show();
+    setShowLinks(true);
   };
 
   const toggleWorkVisibility = () => {
     setShowWork(!showWork);
   };
 
+  const toggleWorkModal = () => {
+    const dialog = document.getElementById("modal_work") as HTMLDialogElement;
+    if (dialog) dialog.show();
+    setShowWork(true);
+  };
+
   const toggleContactMeVisibility = () => {
     setShowContactMe(!showContactMe);
+  };
+
+  const toggleContactMeModal = () => {
+    const dialog = document.getElementById(
+      "modal_contact"
+    ) as HTMLDialogElement;
+    if (dialog) dialog.show();
+    setShowContactMe(true);
   };
 
   return (
@@ -44,7 +70,62 @@ export default function Home() {
       </nav>
 
       {/* when the screen is small */}
-      <div className="block md:hidden"></div>
+      <div className="block md:hidden">
+        <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none flex flex-col items-center">
+          <h1 className="text-(length:--title-size) text-center mt-[20vh]">
+            hi!&nbsp;
+            <span className="text-primary">i'm jonathan</span>
+          </h1>
+          <h3 className="text-center text-(length:--subtitle-size) mb-5">
+            front-end, back-end, and cybersecurity
+          </h3>
+          <div className="flex justify-center max-w-[20rem] pointer-events-auto">
+            <div className="no-underline">
+              <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
+                <AboutMeButton onClick={toggleAboutMeModal}></AboutMeButton>
+              </div>
+            </div>
+            <dialog id="modal_about" className="modal modal-bottom z-10">
+              {showAboutMe && <AboutMeMdHidden></AboutMeMdHidden>}
+            </dialog>
+            <div className="no-underline">
+              <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
+                <LinksButton onClick={toggleLinksModal}></LinksButton>
+              </div>
+            </div>
+            <dialog id="modal_links" className="modal modal-bottom z-10">
+              {/* {showLinks && (
+                <LinksMdHidden
+                ></LinksMdHidden>
+              )} */}
+            </dialog>
+            <div className="no-underline">
+              <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
+                <WorkButton onClick={toggleWorkModal}></WorkButton>
+              </div>
+            </div>
+            <dialog id="modal_work" className="modal modal-bottom z-10">
+              {/* {showWork && (
+                <WorkMdHidden
+                ></WorkMdHidden>
+              )} */}
+            </dialog>
+            <div className="no-underline">
+              <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
+                <ContactMeButton
+                  onClick={toggleContactMeModal}
+                ></ContactMeButton>
+              </div>
+            </div>
+            <dialog id="modal_contact" className="modal modal-bottom z-10">
+              {/* {showContactMe && (
+                <ContactMeMdHidden
+                ></ContactMeMdHidden>
+              )} */}
+            </dialog>
+          </div>
+        </div>
+      </div>
       {/* when the screen is md / large */}
       <div className="hidden md:block">
         <div className="fixed flex mx-auto w-screen h-screen items-center justify-center z-0">
@@ -85,14 +166,12 @@ export default function Home() {
         </div>
         <div className="fixed flex items-center justify-center pointer-events-none top-0 left-0 w-screen h-screen z-1">
           {showAboutMe && (
-            <AboutMe onClose={() => setShowAboutMe(false)}></AboutMe>
+            <AboutMeMdBlock
+              onClose={() => setShowAboutMe(false)}
+            ></AboutMeMdBlock>
           )}
-          {showLinks && (
-            <Links onClose={() => setShowLinks(false)}></Links>
-          )}
-          {showWork && (
-            <Work onClose={() => setShowWork(false)}></Work>
-          )}
+          {showLinks && <Links onClose={() => setShowLinks(false)}></Links>}
+          {showWork && <Work onClose={() => setShowWork(false)}></Work>}
           {showContactMe && (
             <ContactMe onClose={() => setShowContactMe(false)}></ContactMe>
           )}
