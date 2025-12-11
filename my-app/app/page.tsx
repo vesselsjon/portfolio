@@ -10,9 +10,9 @@ import {
 } from "./ui/body/buttons";
 import { useState } from "react";
 import { AboutMeMdBlock, AboutMeMdHidden } from "./ui/body/about-me";
-import Links from "./ui/body/links";
-import Work from "./ui/body/work";
-import ContactMe from "./ui/body/contact-me";
+import { LinksMdBlock, LinksMdHidden } from "./ui/body/links";
+import { WorkMdBlock, WorkMdHidden } from "./ui/body/work";
+import { ContactMeMdBlock, ContactMeMdHidden } from "./ui/body/contact-me";
 
 export default function Home() {
   const [showAboutMe, setShowAboutMe] = useState(false);
@@ -85,7 +85,11 @@ export default function Home() {
                 <AboutMeButton onClick={toggleAboutMeModal}></AboutMeButton>
               </div>
             </div>
-            <dialog id="modal_about" className="modal modal-bottom z-10">
+            <dialog
+              id="modal_about"
+              className="modal modal-bottom z-10"
+              onClose={() => setShowAboutMe(false)}
+            >
               {showAboutMe && <AboutMeMdHidden></AboutMeMdHidden>}
             </dialog>
             <div className="no-underline">
@@ -93,22 +97,24 @@ export default function Home() {
                 <LinksButton onClick={toggleLinksModal}></LinksButton>
               </div>
             </div>
-            <dialog id="modal_links" className="modal modal-bottom z-10">
-              {/* {showLinks && (
-                <LinksMdHidden
-                ></LinksMdHidden>
-              )} */}
+            <dialog
+              id="modal_links"
+              className="modal modal-bottom z-10"
+              onClose={() => setShowLinks(false)}
+            >
+              {showLinks && <LinksMdHidden></LinksMdHidden>}
             </dialog>
             <div className="no-underline">
               <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
                 <WorkButton onClick={toggleWorkModal}></WorkButton>
               </div>
             </div>
-            <dialog id="modal_work" className="modal modal-bottom z-10">
-              {/* {showWork && (
-                <WorkMdHidden
-                ></WorkMdHidden>
-              )} */}
+            <dialog
+              id="modal_work"
+              className="modal modal-bottom z-10"
+              onClose={() => setShowWork(false)}
+            >
+              {showWork && <WorkMdHidden></WorkMdHidden>}
             </dialog>
             <div className="no-underline">
               <div className="flex items-center justify-center w-[5rem] h-[5rem] mx-2 mt-4 mb-0 rounded-lg bg-light dark:bg-lighter">
@@ -117,11 +123,12 @@ export default function Home() {
                 ></ContactMeButton>
               </div>
             </div>
-            <dialog id="modal_contact" className="modal modal-bottom z-10">
-              {/* {showContactMe && (
-                <ContactMeMdHidden
-                ></ContactMeMdHidden>
-              )} */}
+            <dialog
+              id="modal_contact"
+              className="modal modal-bottom z-10"
+              onClose={() => setShowContactMe(false)}
+            >
+              {showContactMe && <ContactMeMdHidden></ContactMeMdHidden>}
             </dialog>
           </div>
         </div>
@@ -170,10 +177,12 @@ export default function Home() {
               onClose={() => setShowAboutMe(false)}
             ></AboutMeMdBlock>
           )}
-          {showLinks && <Links onClose={() => setShowLinks(false)}></Links>}
-          {showWork && <Work onClose={() => setShowWork(false)}></Work>}
+          {showLinks && (
+            <LinksMdBlock onClose={() => setShowLinks(false)}></LinksMdBlock>
+          )}
+          {showWork && <WorkMdBlock onClose={() => setShowWork(false)}></WorkMdBlock>}
           {showContactMe && (
-            <ContactMe onClose={() => setShowContactMe(false)}></ContactMe>
+            <ContactMeMdBlock onClose={() => setShowContactMe(false)}></ContactMeMdBlock>
           )}
         </div>
       </div>
