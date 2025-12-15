@@ -8,7 +8,7 @@ import {
   WorkButton,
   ContactMeButton,
 } from "./ui/body/buttons";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AboutMeMdBlock, AboutMeMdHidden } from "./ui/body/about-me";
 import { LinksMdBlock, LinksMdHidden } from "./ui/body/links";
 import { WorkMdBlock, WorkMdHidden } from "./ui/body/work";
@@ -19,6 +19,10 @@ export default function Home() {
   const [showLinks, setShowLinks] = useState(false);
   const [showWork, setShowWork] = useState(false);
   const [showContactMe, setShowContactMe] = useState(false);
+  const aboutDialogRef = useRef<HTMLDialogElement>(null);
+  const linksDialogRef = useRef<HTMLDialogElement>(null);
+  const workDialogRef = useRef<HTMLDialogElement>(null);
+  const contactDialogRef = useRef<HTMLDialogElement>(null);
 
   const toggleAboutMeVisibility = () => {
     setShowAboutMe(!showAboutMe);
@@ -62,13 +66,35 @@ export default function Home() {
     setShowContactMe(true);
   };
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    const handleChange = (e: MediaQueryList | MediaQueryListEvent) => {
+      if (e.matches) {
+        aboutDialogRef.current?.close();
+        linksDialogRef.current?.close();
+        workDialogRef.current?.close();
+        contactDialogRef.current?.close();
+
+        setShowAboutMe(false);
+        setShowLinks(false);
+        setShowWork(false);
+        setShowContactMe(false);
+      }
+    };
+
+    handleChange(mediaQuery);
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <>
       {/* nav */}
       <nav className="p-3">
         <ThemeToggle></ThemeToggle>
       </nav>
-
       {/* when the screen is small */}
       <div className="block md:hidden">
         <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none flex flex-col items-center">
@@ -86,6 +112,7 @@ export default function Home() {
               </div>
             </div>
             <dialog
+              ref={aboutDialogRef}
               id="modal_about"
               className="modal modal-bottom z-10"
               onClose={() => setShowAboutMe(false)}
@@ -98,6 +125,7 @@ export default function Home() {
               </div>
             </div>
             <dialog
+              ref={linksDialogRef}
               id="modal_links"
               className="modal modal-bottom z-10"
               onClose={() => setShowLinks(false)}
@@ -110,6 +138,7 @@ export default function Home() {
               </div>
             </div>
             <dialog
+              ref={workDialogRef}
               id="modal_work"
               className="modal modal-bottom z-10"
               onClose={() => setShowWork(false)}
@@ -124,6 +153,7 @@ export default function Home() {
               </div>
             </div>
             <dialog
+              ref={contactDialogRef}
               id="modal_contact"
               className="modal modal-bottom z-10"
               onClose={() => setShowContactMe(false)}
@@ -180,9 +210,13 @@ export default function Home() {
           {showLinks && (
             <LinksMdBlock onClose={() => setShowLinks(false)}></LinksMdBlock>
           )}
-          {showWork && <WorkMdBlock onClose={() => setShowWork(false)}></WorkMdBlock>}
+          {showWork && (
+            <WorkMdBlock onClose={() => setShowWork(false)}></WorkMdBlock>
+          )}
           {showContactMe && (
-            <ContactMeMdBlock onClose={() => setShowContactMe(false)}></ContactMeMdBlock>
+            <ContactMeMdBlock
+              onClose={() => setShowContactMe(false)}
+            ></ContactMeMdBlock>
           )}
         </div>
       </div>

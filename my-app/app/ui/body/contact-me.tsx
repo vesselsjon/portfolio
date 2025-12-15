@@ -12,18 +12,42 @@ export function ContactMeMdBlock({ onClose }: any) {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none">
       {/* Make ONLY the header draggable */}
-      <Draggable nodeRef={nodeRef} handle=".window-header" bounds="parent" defaultPosition={{ x: getRandomIntInclusive(225, 300), y: getRandomIntInclusive(225, 300) }}>
-        <div ref={nodeRef} className="pointer-events-auto w-[800px]">
+      <Draggable
+        nodeRef={nodeRef}
+        handle=".window-header"
+        bounds="parent"
+        defaultPosition={{
+          x: getRandomIntInclusive(225, 300),
+          y: getRandomIntInclusive(225, 300),
+        }}
+      >
+        <div ref={nodeRef} className="pointer-events-auto w-[590px]">
           {/* HEADER */}
           <div className="window-header flex items-center justify-between rounded-t-lg font-mono [background-color:var(--bg-gray)] dark:border-x-2 dark:border-t-2 dark:border-white text-white dark:[background-color:var(--background)] text-xl px-6 py-3 select-none">
             <div>contact</div>
-            <button onClick={onClose} className="font-mono text-white duration-100 hover:scale-110 active:scale-90">
+            <button
+              onClick={onClose}
+              className="font-mono text-white duration-100 hover:scale-110 active:scale-90"
+            >
               [ x ]
             </button>
           </div>
 
           {/* BODY — NOT DRAGGABLE but moves with parent */}
-          <div className="flex flex-col items-start bg-white dark:[background-color:var(--bg-secondary-dark)] border-2 border-gray-light dark:border-white rounded-b-xl shadow-flat w-[800px] h-(--window-height)"></div>
+          <div className="flex flex-col items-start bg-white dark:[background-color:var(--bg-secondary-dark)] border-2 border-gray-light dark:border-white rounded-b-xl shadow-flat w-[590px] h-[580px]">
+            <div className="w-full h-full flex flex-col items-center p-6 md:p-7 bg-lighter rounded-b-lg">
+              <p className="text-center text-base">
+                The contact form is in the process of being learned. However,
+                feel free to send me an email or message on linkedin!
+              </p>
+              <br />
+              <br />
+              <p className="text-center text-base pb-4">
+                email me at: &nbsp;
+                <u>vesselsjonathan@gmail.com</u>
+              </p>
+            </div>
+          </div>
         </div>
       </Draggable>
     </div>
@@ -32,16 +56,31 @@ export function ContactMeMdBlock({ onClose }: any) {
 
 export function ContactMeMdHidden() {
   return (
-    <div className="modal-box p-0 h-[90vh] [background-color:var(--background)]">
+    <div className="modal-box p-0 h-[90svh] [background-color:var(--background)]">
       <div className="rounded-t-lg [background-color:var(--bg-gray)] text-white dark:bg-white dark:text-black w-full font-mono text-lg font-bold p-4 sticky top-0 z-10 flex items-center justify-between">
         contact
         <form method="dialog">
-          <Button variant="ghost" className="bg-transparent flex items-center justify-center p-0 rounded-2xl hover:scale-105 active:scale-90">
+          <Button
+            variant="ghost"
+            className="bg-transparent flex items-center justify-center p-0 rounded-2xl hover:scale-105 active:scale-90"
+          >
             <FaAnglesDown />
           </Button>
         </form>
       </div>
       <div className="overflow-y">
+        <div className="w-full h-full flex flex-col items-center p-6 md:p-7 bg-lighter rounded-b-lg">
+          <p className="text-center text-base">
+            The contact form is in the process of being learned. However, feel
+            free to send me an email or message on linkedin!
+          </p>
+          <br />
+          <br />
+          <p className="text-center text-base pb-4">
+            email me at: &nbsp;
+            <u>vesselsjonathan@gmail.com</u>
+          </p>
+        </div>
       </div>
     </div>
   );

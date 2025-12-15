@@ -6,7 +6,7 @@ import { GiFullFolder } from "react-icons/gi";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub, FaFileAlt } from "react-icons/fa";
 
-export function AboutMeButton({ children, onClick }: { children: React.ReactNode; onClick?: () => void}) {
+export function AboutMeButton({ onClick }: { onClick?: () => void }) {
   return (
     <div className="flex flex-col items-center">
       <Button
@@ -15,7 +15,6 @@ export function AboutMeButton({ children, onClick }: { children: React.ReactNode
         onClick={onClick}
       >
         <IoIosInformationCircle style={{ width: 48, height: 48 }} />
-        {children}
       </Button>
 
       <div className="font-mono font-bold text-lg text-center text-gray mt-2">
@@ -25,7 +24,7 @@ export function AboutMeButton({ children, onClick }: { children: React.ReactNode
   );
 }
 
-export function LinksButton({ children, onClick }: { children: React.ReactNode; onClick?: () => void}) {
+export function LinksButton({ onClick }: { onClick?: () => void }) {
   return (
     <div className="flex flex-col items-center">
       <Button
@@ -34,7 +33,6 @@ export function LinksButton({ children, onClick }: { children: React.ReactNode; 
         onClick={onClick}
       >
         <IoIosLink style={{ width: 48, height: 48 }} />
-        {children}
       </Button>
 
       <div className="font-mono font-bold text-lg text-center text-gray mt-2">
@@ -44,7 +42,7 @@ export function LinksButton({ children, onClick }: { children: React.ReactNode; 
   );
 }
 
-export function WorkButton({ children, onClick }: { children: React.ReactNode; onClick?: () => void}) {
+export function WorkButton({ onClick }: { onClick?: () => void }) {
   return (
     <div className="flex flex-col items-center">
       <Button
@@ -53,7 +51,6 @@ export function WorkButton({ children, onClick }: { children: React.ReactNode; o
         onClick={onClick}
       >
         <GiFullFolder style={{ width: 48, height: 48 }} />
-        {children}
       </Button>
 
       <div className="font-mono font-bold text-lg text-center text-gray mt-2">
@@ -63,7 +60,7 @@ export function WorkButton({ children, onClick }: { children: React.ReactNode; o
   );
 }
 
-export function ContactMeButton({ children, onClick }: { children: React.ReactNode; onClick?: () => void}) {
+export function ContactMeButton({ onClick }: { onClick?: () => void }) {
   return (
     <div className="flex flex-col items-center">
       <Button
@@ -72,7 +69,6 @@ export function ContactMeButton({ children, onClick }: { children: React.ReactNo
         onClick={onClick}
       >
         <MdOutlineAttachEmail style={{ width: 48, height: 48 }} />
-        {children}
       </Button>
 
       <div className="font-mono font-bold text-lg text-center text-gray mt-2">

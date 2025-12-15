@@ -35,27 +35,29 @@ export function AboutMeMdBlock({ onClose }: any) {
 
           {/* BODY — NOT DRAGGABLE but moves with parent */}
           <div className="flex flex-col items-start bg-white dark:[background-color:var(--bg-secondary-dark)] border-2 border-gray-light dark:border-white rounded-b-xl shadow-flat w-[800px] h-(--window-height)">
-            <div className="pt-6 p-4 flex flex-col items-center md:flex-row md:pl-15 md:p-8">
-              <div className="md:pl-9">
-                <div className="text-(length:--name-size)/8 font-bold text-primary mt-4 text-center md:text-left">
+            <div className="pt-6 p-4 flex justify-center md:p-8 w-full">
+              <div className="text-center">
+                <div className="text-(length:--name-size)/8 font-bold text-primary mt-4">
                   Jonathan Vessels
                   <br className="block md:hidden" />
                 </div>
-                <div className="text-base md:text-lg text-center md:text-left md:pl-1">
+                <div className="text-base md:text-lg pt-2">
                   US-based software engineer
                   <br />
                   Former app developer at{" "}
-                  <a
-                    href="https://www.machinify.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Machinify
-                  </a>
+                  <u>
+                    <a
+                      href="https://www.machinify.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Machinify
+                    </a>
+                  </u>
                 </div>
               </div>
             </div>
-            <hr className="h-px [background-color:var(--bg-gray)] dark:opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
+            <hr className="h-px [background-color:var(--bg-gray)] dark:bg-white opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
             <div className="pt-5 pb-10 md:pb-20 px-5 md:px-12 w-full h-full rounded-b-md overflow-y-auto text-base md:text-xl/9">
               <div>
                 <div className="pb-3">
@@ -100,18 +102,41 @@ export function AboutMeMdBlock({ onClose }: any) {
 
 export function AboutMeMdHidden() {
   return (
-    <div className="modal-box p-0 h-[90vh] [background-color:var(--background)]">
+    <div className="modal-box p-0 max-h-[64svh] flex flex-col [background-color:var(--background)]">
       <div className="rounded-t-lg [background-color:var(--bg-gray)] text-white dark:bg-white dark:text-black w-full font-mono text-lg font-bold p-4 sticky top-0 z-10 flex items-center justify-between">
         about
         <form method="dialog">
-          <Button variant="ghost" className="bg-transparent flex items-center justify-center p-0 rounded-2xl hover:scale-105 active:scale-90">
+          <Button
+            variant="ghost"
+            className="bg-transparent flex items-center justify-center p-0 rounded-2xl hover:scale-105 active:scale-90"
+          >
             <FaAnglesDown />
           </Button>
         </form>
       </div>
-      <div className="overflow-y">
-        <div className="pt-6 p-4 flex flex-col items-center md:flex-row md:pl-15 md:p-8"></div>
-        <hr className="h-px [background-color:var(--bg-gray)] dark:opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
+      <div className="flex-1 overflow-y-auto">
+        <div className="pt-6 p-4 flex flex-col items-center md:flex-row md:pl-15 md:p-8">
+          <div className="md:pl-9">
+            <div className="text-(length:--name-size)/8 font-bold text-primary mt-4 text-center md:text-left">
+              Jonathan Vessels
+            </div>
+          </div>
+          <div className="text-base md:text-lg text-center md:text-left md:pl-1">
+            US-based software engineer
+            <br />
+            Former app developer at{" "}
+            <u>
+              <a
+                href="https://www.machinify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Machinify
+              </a>
+            </u>
+          </div>
+        </div>
+        <hr className="h-px [background-color:var(--bg-gray)] dark:bg-white opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
         <div className="pt-5 pb-10 md:pb-20 px-5 md:px-12 w-full h-full rounded-b-md overflow-y-auto text-base md:text-xl/9">
           <div>
             <div className="pb-3">
