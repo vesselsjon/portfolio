@@ -135,7 +135,12 @@ export function WorkMdBlock({ onClose }: any) {
                   <div className="flex flex-col items-center md:items-start md:flex-row">
                     {/* IMAGE */}
                     <div className="w-[300px] h-[250px] py-2 md:py-5 md:pr-7 shrink-0">
-                      <Image src="/MusicGenreDiscoverer.webp" width={1919} height={908} alt="SOAR-EDR process"/>
+                      <Image
+                        src="/MusicGenreDiscoverer.webp"
+                        width={1919}
+                        height={908}
+                        alt="SOAR-EDR process"
+                      />
                     </div>
                     {/* BODY */}
                     <div className="py-5 flex flex-col items-center w-full">
@@ -282,36 +287,41 @@ export function WorkMdHidden() {
               <hr className="h-px [background-color:var(--bg-gray)] dark:bg-white opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
             </div>
             <div>
-                  <div className="flex flex-col items-center md:items-start md:flex-row">
-                    {/* IMAGE */}
-                    <div className="w-[300px] h-[250px] py-2 md:py-5 md:pr-7 shrink-0">
-                      <Image src="/MusicGenreDiscoverer.webp" width={1919} height={908} alt="SOAR-EDR process"/>
-                    </div>
-                    {/* BODY */}
-                    <div className="py-5 flex flex-col items-center w-full">
-                      <h3 className="text-primary font-bold text-2xl md:text-(length:--subtitle-size) mb-1 w-full">
-                        Music Genre Discoverer
-                      </h3>
-                      <p className="pt-2 pb-4 text-base md:text-(length:--body-size)">
-                        Music Genre Discoverer is a web-based music
-                        recommendation system that suggests similar songs using
-                        audio feature extraction and machine learning. <br />
-                        <br />
-                        Users can upload audio files, which are analyzed with
-                        Librosa to extract features such as tempo, chroma,
-                        MFCCs, and spectral data. <br />
-                        <br />
-                        Song similarity is calculated using cosine distance, and
-                        results are stored and retrieved from Firebase
-                        Firestore. <br />
-                        <br />
-                        The application is built with a Flask backend and an
-                        Angular frontend.
-                      </p>
-                    </div>
-                  </div>
-                  <hr className="h-px [background-color:var(--bg-gray)] dark:bg-white opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
+              <div className="flex flex-col items-center md:items-start md:flex-row">
+                {/* IMAGE */}
+                <div className="w-[300px] h-[250px] py-2 md:py-5 md:pr-7 shrink-0">
+                  <Image
+                    src="/MusicGenreDiscoverer.webp"
+                    width={1919}
+                    height={908}
+                    alt="SOAR-EDR process"
+                  />
                 </div>
+                {/* BODY */}
+                <div className="py-5 flex flex-col items-center w-full">
+                  <h3 className="text-primary font-bold text-2xl md:text-(length:--subtitle-size) mb-1 w-full">
+                    Music Genre Discoverer
+                  </h3>
+                  <p className="pt-2 pb-4 text-base md:text-(length:--body-size)">
+                    Music Genre Discoverer is a web-based music recommendation
+                    system that suggests similar songs using audio feature
+                    extraction and machine learning. <br />
+                    <br />
+                    Users can upload audio files, which are analyzed with
+                    Librosa to extract features such as tempo, chroma, MFCCs,
+                    and spectral data. <br />
+                    <br />
+                    Song similarity is calculated using cosine distance, and
+                    results are stored and retrieved from Firebase Firestore.{" "}
+                    <br />
+                    <br />
+                    The application is built with a Flask backend and an Angular
+                    frontend.
+                  </p>
+                </div>
+              </div>
+              <hr className="h-px [background-color:var(--bg-gray)] dark:bg-white opacity-20 mt-4 md:mt-2 border-0 w-full"></hr>
+            </div>
           </div>
         </div>
       </div>
