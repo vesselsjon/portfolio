@@ -87,10 +87,6 @@ export function LinkedInButton() {
       >
         <FaLinkedin style={{ width: 48, height: 48 }} />
       </Button>
-
-      <div className="font-mono font-bold text-lg text-center text-gray mt-2">
-        linkedin
-      </div>
     </div>
   );
 }
@@ -104,10 +100,6 @@ export function GitHubButton() {
       >
         <FaGithub style={{ width: 48, height: 48 }} />
       </Button>
-
-      <div className="font-mono font-bold text-lg text-center text-gray mt-2">
-        github
-      </div>
     </div>
   );
 }
@@ -121,10 +113,6 @@ export function ResumeButton() {
       >
         <FaFileAlt style={{ width: 48, height: 48 }} />
       </Button>
-
-      <div className="font-mono font-bold text-lg text-center text-gray mt-2">
-        resume
-      </div>
     </div>
   );
 }

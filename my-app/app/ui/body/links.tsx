@@ -45,6 +45,9 @@ export function LinksMdBlock({ onClose }: any) {
                 >
                   <LinkedInButton />
                 </a>
+                <div className="font-mono font-bold text-lg text-center text-gray mt-2">
+                  linkedin
+                </div>
               </div>
               <div className="border-1 rounded-lg border-gray-lighter p-2 m-1 md:border-0 md:m-3">
                 <a
@@ -54,6 +57,9 @@ export function LinksMdBlock({ onClose }: any) {
                 >
                   <GitHubButton />
                 </a>
+                <div className="font-mono font-bold text-lg text-center text-gray mt-2">
+                  github
+                </div>
               </div>
               <div className="border-1 rounded-lg border-gray-lighter p-2 m-1 md:border-0 md:m-3">
                 <a
@@ -63,6 +69,9 @@ export function LinksMdBlock({ onClose }: any) {
                 >
                   <ResumeButton />
                 </a>
+                <div className="font-mono font-bold text-lg text-center text-gray mt-2">
+                  resume
+                </div>
               </div>
             </div>
             <p className="hidden md:block flex mt-2 text-center px-12 pt-3 pb-4 rounded-md border-1 border-gray-lighter text-sm text-gray">
@@ -91,31 +100,46 @@ export function LinksMdHidden() {
       </div>
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col pt-6 p-4 md:p-0 md:grid md:grid-cols-3 md:grid-rows-1 md:w-full md:justify-items-center md:place-items-center">
+          {/* LinkedIn */}
           <div className="border-1 rounded-lg border-gray-lighter p-2 m-1 md:border-0 md:m-3">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/jonathan-vessels-9b6163231/"
+              className="flex items-center gap-3 hover:scale-103 active:scale-90"
             >
               <LinkedInButton />
+              <div className="font-mono font-bold text-lg text-gray">
+                linkedin
+              </div>
             </a>
           </div>
+          {/* GitHub */}
           <div className="border-1 rounded-lg border-gray-lighter p-2 m-1 md:border-0 md:m-3">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/vesselsjon"
+              className="flex items-center gap-3 hover:scale-103 active:scale-90"
             >
               <GitHubButton />
+              <div className="font-mono font-bold text-lg text-gray">
+                github
+              </div>
             </a>
           </div>
+          {/* Resume */}
           <div className="border-1 rounded-lg border-gray-lighter p-2 m-1 md:border-0 md:m-3">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="/Jonathan_Vessels-Resume.pdf"
+              className="flex items-center gap-3 hover:scale-103 active:scale-90"
             >
               <ResumeButton />
+              <div className="font-mono font-bold text-lg text-gray">
+                resume
+              </div>
             </a>
           </div>
         </div>
